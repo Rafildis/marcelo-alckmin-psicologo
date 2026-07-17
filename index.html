@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcelo Alckmin | Psicólogo</title>
+<style>
+  :root{
+    --bg: #ede7e2;
+    --bg-alt: #e4ded6;
+    --teal: #0f5f78;
+    --teal-dark: #0a4a5e;
+    --teal-mid: #136e8a;
+    --orange: #e8a23f;
+    --ink: #2c2b29;
+    --ink-soft: #4d4b48;
+    --card-bg: #e3dcd2;
+    --max: 1120px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height:1.6;
+  }
+  img{max-width:100%; display:block;}
+  .container{max-width:var(--max); margin:0 auto; padding:0 24px;}
+
+  h1,h2,h3,h4{font-family: 'Helvetica Neue', Arial, sans-serif; font-weight:700; color:var(--ink); letter-spacing:-0.01em;}
+  p, li, a{font-family: 'Helvetica Neue', Arial, sans-serif;}
+
+  /* HEADER */
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px; background:var(--bg);
+    position:sticky; top:0; z-index:100;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{background:rgba(237,231,226,0.96); border-bottom:1px solid #ddd4c9; backdrop-filter:blur(4px);}
+  .header-inner{max-width:var(--max); margin:0 auto; width:100%; display:flex; align-items:center; justify-content:space-between;}
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-badge{
+    width:38px; height:38px; border-radius:50%; flex:0 0 38px;
+    background: radial-gradient(circle at 30% 30%, var(--teal), var(--teal-dark));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:18px;
+  }
+  .logo-text{font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; font-weight:700; color:var(--ink); line-height:1.15;}
+
+  nav.desktop-nav{display:none; gap:28px;}
+  nav.desktop-nav a{color:var(--ink); text-decoration:none; font-size:14.5px; font-weight:600;}
+  nav.desktop-nav a:hover{color:var(--teal);}
+  .nav-cta{background:var(--teal); color:#fff !important; padding:10px 18px; border-radius:8px;}
+
+  .menu-icon{display:flex; flex-direction:column; gap:4px; cursor:pointer; background:none; border:none; padding:8px;}
+  .menu-icon span{width:22px; height:2px; background:var(--ink); display:block; transition:.2s;}
+
+  .mobile-nav{
+    display:none; flex-direction:column; gap:2px; background:var(--bg);
+    border-bottom:1px solid #ddd4c9;
+  }
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{padding:14px 24px; text-decoration:none; color:var(--ink); font-size:15px; font-weight:600; border-top:1px solid #ddd4c9;}
+
+  /* HERO */
+  .hero{padding:0 0 40px;}
+  .hero-grid{display:flex; flex-direction:column;}
+  .hero-photo-wrap{width:100%; overflow:hidden; border-radius:0;}
+  .hero-photo{width:100%; object-fit:cover; aspect-ratio:384/270;}
+  .hero-text{padding:28px 24px 0;}
+  .hero-text h1{font-size:26px; line-height:1.25; margin-bottom:14px;}
+  .hero-text p{font-size:15px; color:var(--ink-soft); margin-bottom:20px;}
+
+  .btn{
+    display:inline-block; background:var(--teal); color:#fff !important;
+    font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:14px;
+    text-align:center; text-decoration:none; padding:14px 22px; border-radius:8px;
+    width:100%; border:none; cursor:pointer; transition:background .2s, transform .15s;
+  }
+  .btn:hover{background:var(--teal-dark);}
+  .btn-inline{width:auto; display:inline-block;}
+  .btn-wrap{padding:0 24px 24px;}
+
+  .divider-flower{text-align:center; padding:10px 0 28px; font-size:26px; color:var(--teal);}
+
+  .divider-flower img{ text-align: center; width: 52px; height: 54px; margin: 0 auto;}
+
+  /* SECTIONS GENERIC */
+  section{padding:8px 24px 32px;}
+  .full-photo{width:100%; object-fit:cover;}
+  section h2{font-size:24px; line-height:1.28; margin:24px 0 18px;}
+  .section-inner{max-width:var(--max); margin:0 auto;}
+
+  /* PAIN POINTS LIST */
+  .point-list{list-style:none; display:flex; flex-direction:column; gap:18px; margin-bottom:20px;}
+  .point-list li{display:flex; gap:14px; align-items:flex-start; font-size:15px; color:var(--ink);}
+  .point-icon{
+    flex:0 0 30px; width:30px; height:30px; border-radius:50%;
+    background:var(--teal); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:15px;
+  }
+  .lead-text{font-size:15px; color:var(--ink-soft); margin-bottom:18px;}
+
+  /* CARDS grid */
+  .card-grid{display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:8px;}
+  .card{background:var(--card-bg); border-radius:10px; padding:22px;}
+  .card h3{font-size:17px; margin-bottom:8px;}
+  .card p{font-size:14.5px; color:var(--ink-soft);}
+
+  /* two-col media sections */
+  .media-row{display:flex; flex-direction:column;}
+  .media-row .media-text{padding:24px;}
+
+  /* THERAPIST BIO */
+  .bio-photo{width:100%; border-radius:12px; margin-bottom:20px;}
+  section h3.name{font-size:19px; margin:22px 0 10px;}
+  section h3.name:first-child{margin-top:0;}
+  .bio-text{font-size:15px; color:var(--ink-soft); margin-bottom:14px;}
+  .bio-grid{display:flex; flex-direction:column;}
+
+  /* HOW IT WORKS */
+  .steps-grid{display:grid; grid-template-columns:1fr; gap:0;}
+  .step-item{border-left:5px solid var(--teal); padding:4px 0 4px 18px; margin-bottom:26px;}
+  .step-item.orange{border-color:var(--orange);}
+  .step-item h3{font-size:17px; margin-bottom:8px;}
+  .step-item p{font-size:14.5px; color:var(--ink-soft);}
+
+  /* BENEFITS */
+  .benefits-grid{display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .donut-wrap{display:flex; justify-content:center; padding:20px 0 10px; flex:0 0 auto;}
+  .donut svg{width:220px; height:220px;}
+  .benefit-list{list-style:none; display:flex; flex-direction:column; gap:20px; width:100%;}
+  .benefit-list li{font-size:15px;}
+  .benefit-list .b-icon{
+    display:inline-flex; width:26px; height:26px; border-radius:50%; background:var(--teal);
+    color:#fff; align-items:center; justify-content:center; font-size:13px; margin-right:8px; vertical-align:middle; flex:0 0 26px;
+  }
+  .benefit-list .row{display:flex; align-items:center; gap:0;}
+  .benefit-list h4{font-size:16px; font-weight:700;}
+  .benefit-list p{font-size:14.5px; color:var(--ink-soft); margin:6px 0 0 34px;}
+  .closing-note{font-size:14.5px; color:var(--ink-soft); margin-top:22px;}
+
+  /* TESTIMONIALS */
+  .testimonial-grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:8px;}
+  .testimonial-box{background:var(--card-bg); border-radius:12px; padding:22px;}
+  blockquote{font-size:15px; color:var(--ink); font-style:italic; margin-bottom:10px;}
+  .author{font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:14px; color:var(--ink-soft);}
+
+  /* FINAL CTA */
+  .petal-wrap{display:flex; justify-content:center; padding:10px 0 10px;}
+  .final-grid{display:flex; flex-direction:column; align-items:center;}
+
+  /* CONTACT CHANNELS */
+  .channels-grid{display:grid; grid-template-columns:1fr; gap:0;}
+  .channel{padding:20px 0; border-top:1px solid #d9d2c8;}
+  .channel:first-of-type{border-top:none;}
+  .channel-icon{
+    width:40px; height:40px; border-radius:50%; background:var(--teal); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:12px;
+  }
+  .channel h4{font-family:'Helvetica Neue',Arial,sans-serif; font-size:17px; font-weight:700; margin-bottom:6px;}
+  .channel p{font-size:14.5px; color:var(--ink-soft); margin-bottom:14px;}
+
+  footer{padding:24px 24px 40px; font-size:14px; color:var(--ink-soft); text-align:center;}
+
+  /* ============ TABLET ============ */
+  @media (min-width:700px){
+    .hero-text h1{font-size:32px;}
+    .card-grid{grid-template-columns:1fr 1fr;}
+    .testimonial-grid{grid-template-columns:1fr 1fr;}
+    .channels-grid{grid-template-columns:1fr 1fr;}
+    .channel{border-top:none; padding:16px; background:var(--card-bg); border-radius:10px;}
+    section h2{font-size:28px;}
+  }
+
+  /* ============ DESKTOP ============ */
+  @media (min-width:1000px){
+    nav.desktop-nav{display:flex; align-items:center;}
+    .menu-icon{display:none;}
+
+    section{padding:64px 24px;}
+    .hero{padding:0 0 20px;}
+
+    .hero-grid{flex-direction:row; align-items:center; gap:56px; max-width:var(--max); margin:0 auto; padding:56px 24px;}
+    .hero-photo-wrap{flex:0 0 42%; border-radius:20px; overflow:hidden;}
+    .hero-photo{aspect-ratio:4/5; border-radius:20px;}
+    .hero-text{flex:1; padding:0;}
+    .hero-text h1{font-size:38px;}
+    .btn-wrap{padding:0; max-width:340px;}
+
+    .media-row{flex-direction:row; align-items:center; gap:56px;}
+    .media-row.reverse{flex-direction:row-reverse;}
+    .media-row .media-photo{flex:0 0 46%; border-radius:16px; overflow:hidden;}
+    .media-row .media-photo img{border-radius:16px;}
+    .media-row .media-text{flex:1; padding:0;}
+
+    .full-photo.contained{max-width:var(--max); margin:0 auto; border-radius:16px;}
+
+    .card-grid{grid-template-columns:repeat(4,1fr); max-width:var(--max); margin:0 auto;}
+
+    .bio-grid{flex-direction:row; align-items:flex-start; gap:56px; max-width:var(--max); margin:0 auto;}
+    .bio-photo{flex:0 0 34%; margin-bottom:0; border-radius:16px;}
+    .bio-copy{flex:1;}
+
+    .steps-grid{grid-template-columns:repeat(3,1fr); gap:32px; max-width:var(--max); margin:0 auto;}
+    .step-item{margin-bottom:0;}
+
+    .benefits-grid{flex-direction:row; align-items:center; gap:64px; max-width:var(--max); margin:0 auto;}
+    .donut-wrap{flex:0 0 260px; padding:0;}
+    .benefit-list{flex:1;}
+
+    .final-grid{flex-direction:row-reverse; align-items:center; gap:64px; max-width:var(--max); margin:0 auto; text-align:left;}
+    .final-grid .petal-col{flex:0 0 260px;}
+    .final-grid .list-col{flex:1;}
+
+    .testimonial-grid{grid-template-columns:repeat(2,1fr); max-width:var(--max); margin:8px auto 0;}
+    .channels-grid{grid-template-columns:repeat(2,1fr); max-width:var(--max); margin:0 auto;}
+    .channel{background:var(--card-bg); border-radius:12px; padding:22px; margin-left: 15px;}
+
+    section h2{font-size:32px; max-width:var(--max); margin-left:auto; margin-right:auto;}
+    .section-inner{padding:0;}
+  }
+</style>
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="topo">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-badge"><img src="images/logo.png" alt="Marcelo Alckmin, psicólogo"></div>
+        <div class="logo-text">Marcelo<br>Alckmin</div>
+      </div>
+      <nav class="desktop-nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#abordagem">Abordagem</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a class="nav-cta" href="https://api.whatsapp.com/send?phone=553591774863&text=Quero%20saber%20mais%20sobre%20o%20tratamento%20da%20ansiedade%20e%20da%20autocr%C3%ADtica">Falar com Marcelo</a>
+      </nav>
+      <button class="menu-icon" id="menuBtn" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#sobre">Sobre</a>
+    <a href="#abordagem">Abordagem</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Falar com Marcelo</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="images/img_hero_marcelo.png" alt="Marcelo Alckmin, psicólogo">
+      </div>
+      <div class="hero-text">
+        <h1>Encontre seu propósito libertando-se da ansiedade e da autocrítica</h1>
+        <p>Uma jornada acolhedora de autoconhecimento que integra saúde física, mental, emocional e espiritual, transformando conflitos internos em clareza, leveza e reconexão com quem você realmente é.</p>
+        <div class="btn-wrap" style="padding-left:0; padding-right:0;"><a class="btn" href="https://api.whatsapp.com/send?phone=553591774863&text=Quero%20saber%20mais%20sobre%20o%20tratamento%20da%20ansiedade%20e%20da%20autocr%C3%ADtica">Quero iniciar minha jornada agora.</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="divider-flower"><img src="images/logo.png" alt="Marcelo Alckmin, psicólogo"></div>
+
+  <!-- PAIN POINTS -->
+  <section id="sobre">
+    <div class="media-row">
+      <div class="media-photo"><img class="full-photo" src="images/img_stressed_man.png" alt="Homem estressado no trabalho"></div>
+      <div class="media-text">
+        <h2>Você se reconhece em alguma dessas situações?</h2>
+        <ul class="point-list">
+          <li><span class="point-icon"><svg viewBox="0 0 24 24" width="15" height="15" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M8.5 10h.01M15.5 10h.01"/><path d="M8.5 16c1-1.3 2.2-2 3.5-2s2.5.7 3.5 2"/></svg></span> Está frequentemente cansado e ansioso, preso num ciclo constante de cobranças internas.</li>
+          <li><span class="point-icon"><svg viewBox="0 0 24 24" width="15" height="15" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H9l-4 4V5z"/></svg></span> Tem dificuldade em definir limites e acaba se sobrecarregando com expectativas externas.</li>
+          <li><span class="point-icon"><svg viewBox="0 0 24 24" width="15" height="15" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 2.5A9.5 9.5 0 0 1 12 21.5z" fill="#fff" stroke="none"/></svg></span> Lá no fundo, sente que falta algo essencial, e essa sensação de vazio não vai embora.</li>
+        </ul>
+        <p class="lead-text">A verdade é que você não precisa de mais um objetivo. Você precisa se reconectar com quem realmente é.</p>
+        <p class="lead-text">Aqui começa seu reencontro com a própria essência. Tudo o que você busca já está dentro de você.</p>
+        <div class="btn-wrap" style="padding-left:0; padding-right:0; max-width:320px;"><a class="btn" href="https://api.whatsapp.com/send?phone=553591774863&text=Quero%20saber%20mais%20sobre%20o%20tratamento%20da%20ansiedade%20e%20da%20autocr%C3%ADtica">Busque ajuda. Clique aqui!</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH INTRO -->
+  <section>
+    <div class="section-inner">
+      <h2>Um caminho acolhedor com apoio profissional para guiar você de volta a si mesmo</h2>
+      <p class="lead-text">Por meio de uma terapia humanizada, ética e profunda, você vai encontrar:</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Autoconhecimento</h3>
+          <p>Reconheça e transforme os padrões emocionais e mentais que hoje limitam sua vida, seus relacionamentos e sua felicidade.</p>
+        </div>
+        <div class="card">
+          <h3>Equilíbrio emocional</h3>
+          <p>Desenvolva ferramentas práticas para lidar com ansiedade, estresse e autocrítica, recuperando leveza e tranquilidade emocional.</p>
+        </div>
+        <div class="card">
+          <h3>Clareza de propósito</h3>
+          <p>Descubra o que realmente importa para você, alinhando suas escolhas com sua essência, potencial e valores.</p>
+        </div>
+        <div class="card">
+          <h3>Relacionamentos saudáveis</h3>
+          <p>Aprenda a estabelecer limites claros e construa relações equilibradas, autênticas e mais significativas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="media-row reverse">
+      <div class="media-photo"><img class="full-photo" src="images/img_beach.png" alt="Caminho ao pôr do sol, jornada de autoconhecimento"></div>
+      <div class="media-text">
+        <h2>Você não precisa caminhar sozinho.</h2>
+        <p class="lead-text">Toda jornada de reencontro pede um guia que conheça profundamente os desafios do caminho e saiba apoiá-lo com acolhimento, leveza e respeito.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THERAPIST BIO -->
+  <section id="abordagem">
+    <div class="bio-grid">
+      <img class="bio-photo" src="images/img_marcelo_book.png" alt="Marcelo Alckmin, terapeuta">
+      <div class="bio-copy">
+        <h3 class="name">Conheça seu terapeuta Marcelo Alckmin</h3>
+        <p class="bio-text">Marcelo é bacharel em Psicologia — CRP:04/63250, com pós-graduação em Psicologia Transpessoal pela Unipaz e especialização em Clínica Transpessoal pela FAVI. Sua formação é complementada por uma sólida base holística em cultura de paz (Unipaz) e pela certificação como professor de yoga pela Ananda School of Yoga (EUA).</p>
+
+        <h3 class="name">Mais do que títulos</h3>
+        <p class="bio-text">Marcelo é reconhecido pelo acolhimento genuíno, pela escuta empática e pelo profundo respeito à sua jornada única. Utilizando técnicas como análise de sonhos, textos reflexivos, histórias pessoais, respiração consciente, imaginação ativa e momentos profundos de troca, ele guia você para organizar todas as áreas da sua vida, fortalecer sua inteligência emocional e ampliar sua conexão com a vida.</p>
+
+        <h3 class="name">Abordagem</h3>
+        <p class="bio-text">Sua abordagem transpessoal também leva você a explorar estados ampliados de consciência, despertando sua intuição e proporcionando uma conexão profunda com um propósito maior. Tudo isso em um espaço seguro, acolhedor e dedicado à sua transformação integral.</p>
+        <div class="btn-wrap" style="padding-left:0; padding-right:0; max-width:320px;"><a class="btn" href="https://api.whatsapp.com/send?phone=553591774863&text=Quero%20saber%20mais%20sobre%20o%20tratamento%20da%20ansiedade%20e%20da%20autocr%C3%ADtica">Viva com propósito. Clique aqui!</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="section-inner">
+      <h2>Como funciona essa jornada?</h2>
+      <div class="steps-grid">
+        <div class="step-item">
+          <h3>Reconheça seus padrões internos</h3>
+          <p>Você já percebeu que alguns desafios sempre voltam? Com uma abordagem profundamente humana, vamos usar ferramentas como análise de sonhos, textos reflexivos e histórias pessoais, para ajudar você a entender melhor suas emoções, pensamentos e comportamentos.</p>
+        </div>
+        <div class="step-item orange">
+          <h3>Liberte-se de ciclos repetitivos</h3>
+          <p>Você terá acesso a práticas que vão além do racional, como imaginação ativa, respiração consciente e momentos de troca profunda, escuta ativa, com apoio acolhedor para desbloquear novos caminhos, fortalecer sua inteligência emocional e se reconectar com sua intuição.</p>
+        </div>
+        <div class="step-item">
+          <h3>Construa seu próprio caminho</h3>
+          <p>Com o suporte acolhedor e seguro do seu guia, você integrará essas novas percepções ao seu dia a dia, desenvolvendo habilidades que vão te ajudar a reorganizar todas as áreas da sua vida com muito mais clareza, significado e uma profunda conexão consigo mesmo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section>
+    <div class="section-inner">
+      <h2>Benefícios da abordagem</h2>
+      <div class="benefits-grid">
+        <div class="donut-wrap donut">
+          <svg viewBox="0 0 240 240">
+            <circle cx="120" cy="120" r="78" fill="none" stroke="#0f5f78" stroke-width="52" stroke-dasharray="122.5 367.5" stroke-dashoffset="0" transform="rotate(-90 120 120)"/>
+            <circle cx="120" cy="120" r="78" fill="none" stroke="#136e8a" stroke-width="52" stroke-dasharray="122.5 367.5" stroke-dashoffset="-122.5" transform="rotate(-90 120 120)"/>
+            <circle cx="120" cy="120" r="78" fill="none" stroke="#0a4a5e" stroke-width="52" stroke-dasharray="122.5 367.5" stroke-dashoffset="-245" transform="rotate(-90 120 120)"/>
+            <circle cx="120" cy="120" r="78" fill="none" stroke="#187b98" stroke-width="52" stroke-dasharray="122.5 367.5" stroke-dashoffset="-367.5" transform="rotate(-90 120 120)"/>
+            <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <!-- coração: quadrante superior esquerdo -->
+              <path transform="translate(69,69)" d="M12 20.5c-6-4.2-10-8.3-10-13A6 6 0 0 1 12 5.2 6 6 0 0 1 22 7.5c0 4.7-4 8.8-10 13z"/>
+              <!-- lâmpada: quadrante superior direito -->
+              <g transform="translate(144,69)">
+                <path d="M9 17h6M10 20h4"/>
+                <path d="M12 3a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 3z"/>
+              </g>
+              <!-- bússola: quadrante inferior esquerdo -->
+              <g transform="translate(69,144)">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M15 9l-4.5 2.5L8 16l4.5-2.5z" fill="#fff" stroke="none"/>
+              </g>
+              <!-- pessoas: quadrante inferior direito -->
+              <g transform="translate(144,144)">
+                <circle cx="8.5" cy="8" r="3"/>
+                <circle cx="16" cy="9" r="2.5"/>
+                <path d="M3 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6"/>
+                <path d="M15 14.3c2.3.4 4 2.6 4 5.7"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <ul class="benefit-list">
+          <li>
+            <div class="row"><span class="b-icon">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5c-6-4.2-10-8.3-10-13A6 6 0 0 1 12 5.2 6 6 0 0 1 22 7.5c0 4.7-4 8.8-10 13z"/></svg>
+            </span><h4>Equilíbrio emocional</h4></div>
+            <p>Redução significativa de ansiedade, estresse e autocrítica, promovendo maior tranquilidade no dia a dia.</p>
+          </li>
+          <li>
+            <div class="row"><span class="b-icon">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17h6M10 20h4"/><path d="M12 3a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 3z"/></svg>
+            </span><h4>Clareza mental</h4></div>
+            <p>Pensamentos mais organizados e decisões alinhadas com seus valores e propósito de vida.</p>
+          </li>
+          <li>
+            <div class="row"><span class="b-icon">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6"/><path d="M15 14.3c2.3.4 4 2.6 4 5.7"/></svg>
+            </span><h4>Relacionamentos saudáveis</h4></div>
+            <p>Construção de vínculos mais autênticos, com limites claros e maior confiança em si mesmo.</p>
+          </li>
+          <li>
+            <div class="row"><span class="b-icon">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-4.5 2.5L8 16l4.5-2.5z" fill="#fff" stroke="none"/></svg>
+            </span><h4>Conexão com um propósito maior</h4></div>
+            <p>Trazendo mais significado para sua existência, com integração de aspectos físicos, emocionais, mentais e espirituais, proporcionando uma transformação duradoura.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="depoimentos">
+    <div class="section-inner">
+      <h2>O que dizem as pessoas que já foram guiadas pelo Marcelo</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-box">
+          <blockquote>"Após apenas algumas sessões com Marcelo, minha consciência se expandiu sobre um conflito profissional que me afligia. Hoje me sinto realizada e segura no meu caminho. Ele conduz o processo com leveza e assertividade. Recomendo sem hesitar."</blockquote>
+          <p class="author">— Priscilla S.</p>
+        </div>
+        <div class="testimonial-box">
+          <blockquote>"A cada encontro com Marcelo, vejo mudanças reais no meu comportamento. Ele é atencioso, assertivo e tem me ajudado profundamente no meu processo de autoconhecimento. Hoje tenho mais direção e me sinto melhor comigo mesma."</blockquote>
+          <p class="author">— Silvana C.</p>
+        </div>
+        <div class="testimonial-box">
+          <blockquote>"Mais de um ano de terapia com Marcelo me ajudou a transformar minha mentalidade, espiritualidade e reencontrar o propósito em uma nova profissão. Voltei a pintar, algo que tinha abandonado há anos. A cada dia, sinto que tudo vai se ajeitando."</blockquote>
+          <p class="author">— Valter P.</p>
+        </div>
+        <div class="testimonial-box">
+          <blockquote>"Cara, queria agradecer muito pelo seu acompanhamento, estou me sentindo acolhido e tendo a oportunidade de trabalhar minha saúde mental, emocional e espiritual de forma muito integrativa e prática — estou me tornando mais consciente de questões profundas da minha vida e já vejo resultados transformadores no meu dia a dia. Muito Obrigado"</blockquote>
+          <p class="author">— Saulo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="section-inner">
+      <h2>Comece sua jornada agora</h2>
+      <div class="final-grid">
+        <div class="petal-col petal-wrap">
+          <svg width="220" height="220" viewBox="0 0 220 220">
+            <ellipse cx="110" cy="65" rx="55" ry="60" fill="#0f5f78"/>
+            <ellipse cx="65" cy="140" rx="55" ry="60" fill="#136e8a"/>
+            <ellipse cx="155" cy="140" rx="55" ry="60" fill="#0a4a5e"/>
+            <g stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <!-- balança: pétala de cima -->
+              <g transform="translate(98,53)">
+                <line x1="12" y1="3" x2="12" y2="19"/>
+                <line x1="5" y1="7" x2="19" y2="7"/>
+                <line x1="12" y1="19" x2="8" y2="21"/>
+                <line x1="12" y1="19" x2="16" y2="21"/>
+                <path d="M5 7l-2.7 5.2a3 3 0 0 0 5.4 0z"/>
+                <path d="M19 7l-2.7 5.2a3 3 0 0 0 5.4 0z"/>
+              </g>
+              <!-- estrela: pétala da esquerda -->
+              <g transform="translate(53,128)">
+                <path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5-4.7-4.6 6.5-.9z"/>
+              </g>
+              <!-- bússola: pétala da direita -->
+              <g transform="translate(143,128)">
+                <circle cx="12" cy="12" r="9.2"/>
+                <path d="M15.2 8.8l-4.6 2.4-2.4 4.6 4.6-2.4z" fill="#fff" stroke="none"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="list-col">
+          <ul class="benefit-list">
+            <li><div class="row"><span class="b-icon"><svg viewBox="0 0 24 24" width="14" height="14" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5-4.7-4.6 6.5-.9z"/></svg></span><h4>Transformação integral</h4></div><p>Reconexão profunda com sua essência</p></li>
+            <li><div class="row"><span class="b-icon"><svg viewBox="0 0 24 24" width="14" height="14" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="19"/><line x1="5" y1="7" x2="19" y2="7"/><line x1="12" y1="19" x2="8" y2="21"/><line x1="12" y1="19" x2="16" y2="21"/><path d="M5 7l-2.7 5.2a3 3 0 0 0 5.4 0z"/><path d="M19 7l-2.7 5.2a3 3 0 0 0 5.4 0z"/></svg></span><h4>Equilíbrio emocional</h4></div><p>Ferramentas práticas para seu bem-estar</p></li>
+            <li><div class="row"><span class="b-icon"><svg viewBox="0 0 24 24" width="14" height="14" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M15.2 8.8l-4.6 2.4-2.4 4.6 4.6-2.4z" fill="#fff" stroke="none"/></svg></span><h4>Clareza de propósito</h4></div><p>Alinhamento com seus valores essenciais</p></li>
+          </ul>
+          <p class="closing-note">Dê o primeiro passo para se reconectar com sua essência, conquistando mais clareza, equilíbrio emocional e significado na sua vida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CHANNELS -->
+  <section id="contato">
+    <div class="section-inner">
+      <h2>"Dê o primeiro passo para sua auto transformação"</h2>
+      <p class="lead-text">Escolha o canal de comunicação mais adequado para você e inicie sua jornada de transformação:</p>
+
+      <div class="channels-grid">
+        <div class="channel">
+          <div class="channel-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M17 14.3c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5C9.4 9 9 7.9 8.8 7.4c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" fill="none" stroke="#fff" stroke-width="1.5"/></svg></div>
+          <h4>WhatsApp</h4>
+          <p>Mensagens diretas para agendar sua consulta</p>
+          <a class="btn" href="https://api.whatsapp.com/send?phone=553591774863&text=Quero%20saber%20mais%20sobre%20o%20tratamento%20da%20ansiedade%20e%20da%20autocr%C3%ADtica">Agendamentos</a>
+        </div>
+
+        <div class="channel">
+          <div class="channel-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="#fff" stroke-width="1.6" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17" cy="7" r="0.9" fill="#fff" stroke="none"/></svg></div>
+          <h4>Instagram</h4>
+          <p>Acompanhe conteúdos e depoimentos inspiradores</p>
+          <a class="btn" href="https://www.instagram.com/psiceceualckmin/" target="_blank">Seguir</a>
+        </div>
+
+        <!--<div class="channel">
+          <div class="channel-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M14.5 21v-7.5h2.5l.4-3H14.5V8.4c0-.9.2-1.5 1.5-1.5h1.6V4.3C17.3 4.2 16.3 4 15.2 4c-2.3 0-3.9 1.4-3.9 4v2.5H8.8v3h2.5V21z"/></svg></div>
+          <h4>Facebook</h4>
+          <p>Participe da comunidade</p>
+          <a class="btn" href="#">Conectar</a>
+        </div>
+
+        <div class="channel">
+          <div class="channel-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><rect x="2.5" y="6" width="19" height="12" rx="3.5" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M10.5 9.5v5l4.5-2.5z"/></svg></div>
+          <h4>YouTube</h4>
+          <p>Assista a vídeos com práticas e orientações</p>
+          <a class="btn" href="#">Inscrever-se</a>
+        </div>-->
+      </div>
+    </div>
+  </section>
+
+  <footer>Estou aqui para acompanhá-lo em cada passo dessa jornada.</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-nav a').forEach(a=>{
+    a.addEventListener('click', ()=> mobileNav.classList.remove('open'));
+  });
+  const header = document.getElementById('topo');
+  window.addEventListener('scroll', ()=>{
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+</body>
+</html>

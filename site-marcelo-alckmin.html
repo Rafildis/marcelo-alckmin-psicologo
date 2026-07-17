@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcelo Alckmin | Psicólogo</title>
+<style>
+  :root{
+    --bg: #ede7e2;
+    --bg-alt: #e4ded6;
+    --teal: #0f5f78;
+    --teal-dark: #0a4a5e;
+    --orange: #e8a23f;
+    --ink: #2c2b29;
+    --ink-soft: #4d4b48;
+    --card-bg: #e3dcd2;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height:1.55;
+  }
+  .wrap{max-width:480px; margin:0 auto; background:var(--bg); overflow:hidden;}
+
+  h1,h2,h3{font-family: 'Helvetica Neue', Arial, sans-serif; font-weight:700; color:var(--ink); letter-spacing:-0.01em;}
+  p, li{font-family: 'Helvetica Neue', Arial, sans-serif;}
+
+  /* HEADER */
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 20px; background:var(--bg);
+  }
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-badge{
+    width:38px; height:38px; border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, var(--teal), var(--teal-dark));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:18px;
+  }
+  .logo-text{font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:700; color:var(--ink); line-height:1.1;}
+  .menu-icon{display:flex; flex-direction:column; gap:4px; cursor:pointer;}
+  .menu-icon span{width:22px; height:2px; background:var(--ink);}
+
+  /* HERO */
+  .hero-photo{width:100%; display:block; object-fit:cover; aspect-ratio: 384/270;}
+  .hero-text{padding:28px 24px 8px;}
+  .hero-text h1{font-size:26px; line-height:1.25; margin-bottom:14px;}
+  .hero-text p{font-size:15px; color:var(--ink-soft); margin-bottom:20px;}
+
+  .btn{
+    display:inline-block; background:var(--teal); color:#fff !important;
+    font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:14px;
+    text-align:center; text-decoration:none; padding:14px 22px; border-radius:8px;
+    width:100%;
+  }
+  .btn-wrap{padding:0 24px 24px;}
+
+  .divider-flower{text-align:center; padding:10px 0 28px; font-size:26px; color:var(--teal);}
+
+  /* SECTIONS GENERIC */
+  section{padding:8px 24px 32px;}
+  .full-photo{width:100%; display:block; object-fit:cover;}
+  section h2{font-size:24px; line-height:1.28; margin:24px 0 18px;}
+
+  /* PAIN POINTS LIST */
+  .point-list{list-style:none; display:flex; flex-direction:column; gap:18px; margin-bottom:20px;}
+  .point-list li{display:flex; gap:14px; align-items:flex-start; font-size:15px; color:var(--ink);}
+  .point-icon{
+    flex:0 0 30px; width:30px; height:30px; border-radius:50%;
+    background:var(--teal); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:15px;
+  }
+  .lead-text{font-size:15px; color:var(--ink-soft); margin-bottom:18px;}
+
+  /* CARDS (autoconhecimento etc) */
+  .card{background:var(--card-bg); border-radius:10px; padding:20px; margin-bottom:16px;}
+  .card h3{font-size:17px; margin-bottom:8px;}
+  .card p{font-size:14.5px; color:var(--ink-soft);}
+
+  /* THERAPIST BIO */
+  .bio-photo{width:100%; border-radius:12px; display:block; margin-bottom:20px;}
+  section h3.name{font-size:19px; margin-bottom:10px;}
+  .bio-text{font-size:15px; color:var(--ink-soft); margin-bottom:14px;}
+
+  /* HOW IT WORKS - bordered items */
+  .step-item{border-left:5px solid var(--teal); padding:4px 0 4px 18px; margin-bottom:26px;}
+  .step-item.orange{border-color:var(--orange);}
+  .step-item h3{font-size:17px; margin-bottom:8px;}
+  .step-item p{font-size:14.5px; color:var(--ink-soft);}
+
+  /* BENEFITS DONUT */
+  .donut-wrap{display:flex; justify-content:center; padding:20px 0 28px;}
+  .donut{position:relative; width:220px; height:220px;}
+  .donut svg{width:100%; height:100%;}
+  .donut-icon{
+    position:absolute; width:34px; height:34px; border-radius:50%;
+    background:transparent; color:#fff; display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+  .benefit-list{list-style:none; display:flex; flex-direction:column; gap:20px;}
+  .benefit-list li{font-size:15px;}
+  .benefit-list .b-icon{
+    display:inline-flex; width:26px; height:26px; border-radius:50%; background:var(--teal);
+    color:#fff; align-items:center; justify-content:center; font-size:13px; margin-right:8px; vertical-align:middle;
+  }
+  .benefit-list h4{display:inline; font-size:16px; font-weight:700;}
+  .benefit-list p{font-size:14.5px; color:var(--ink-soft); margin:6px 0 0 34px;}
+  .closing-note{font-size:14.5px; color:var(--ink-soft); margin-top:22px;}
+
+  /* TESTIMONIALS */
+  .testimonial-box{background:var(--card-bg); border-radius:12px; padding:22px; margin-top:8px;}
+  blockquote{font-size:15px; color:var(--ink); font-style:italic; margin-bottom:6px;}
+  .author{font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:14px; color:var(--ink-soft); margin-bottom:22px;}
+  .author:last-child{margin-bottom:0;}
+
+  /* PETAL GRAPHIC */
+  .petal-wrap{display:flex; justify-content:center; padding:10px 0 30px;}
+
+  /* CONTACT CHANNELS */
+  .channel{padding:20px 0; border-top:1px solid #d9d2c8;}
+  .channel:first-of-type{border-top:none;}
+  .channel-icon{
+    width:40px; height:40px; border-radius:50%; background:var(--teal); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:12px;
+  }
+  .channel h4{font-family:'Helvetica Neue',Arial,sans-serif; font-size:17px; font-weight:700; margin-bottom:6px;}
+  .channel p{font-size:14.5px; color:var(--ink-soft); margin-bottom:14px;}
+
+  footer{padding:24px 24px 40px; font-size:14px; color:var(--ink-soft); text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <div class="logo-badge">✦</div>
+      <div class="logo-text">Marcelo<br>Alckmin</div>
+    </div>
+    <div class="menu-icon"><span></span><span></span><span></span></div>
+  </header>
+
+  <!-- HERO -->
+  <img class="hero-photo" src="images/img_hero_marcelo.png" alt="Marcelo Alckmin, psicólogo">
+  <div class="hero-text">
+    <h1>Encontre seu propósito libertando-se da ansiedade e da autocrítica</h1>
+    <p>Uma jornada acolhedora de autoconhecimento que integra saúde física, mental, emocional e espiritual, transformando conflitos internos em clareza, leveza e reconexão com quem você realmente é.</p>
+  </div>
+  <div class="btn-wrap"><a class="btn" href="#contato">Quero iniciar minha jornada agora.</a></div>
+  <div class="divider-flower">✦</div>
+
+  <!-- PAIN POINTS -->
+  <img class="full-photo" src="images/img_stressed_man.png" alt="Homem estressado no trabalho">
+  <section>
+    <h2>Você se reconhece em alguma dessas situações?</h2>
+    <ul class="point-list">
+      <li><span class="point-icon">☹</span> Está frequentemente cansado e ansioso, preso num ciclo constante de cobranças internas.</li>
+      <li><span class="point-icon">💬</span> Tem dificuldade em definir limites e acaba se sobrecarregando com expectativas externas.</li>
+      <li><span class="point-icon">◐</span> Lá no fundo, sente que falta algo essencial, e essa sensação de vazio não vai embora.</li>
+    </ul>
+    <p class="lead-text">A verdade é que você não precisa de mais um objetivo. Você precisa se reconectar com quem realmente é.</p>
+    <p class="lead-text">Aqui começa seu reencontro com a própria essência. Tudo o que você busca já está dentro de você.</p>
+  </section>
+  <div class="btn-wrap"><a class="btn" href="#contato">Busque ajuda. Clique aqui!</a></div>
+
+  <!-- APPROACH INTRO -->
+  <section>
+    <h2>Um caminho acolhedor com apoio profissional para guiar você de volta a si mesmo</h2>
+    <p class="lead-text">Por meio de uma terapia humanizada, ética e profunda, você vai encontrar:</p>
+
+    <div class="card">
+      <h3>Autoconhecimento</h3>
+      <p>Reconheça e transforme os padrões emocionais e mentais que hoje limitam sua vida, seus relacionamentos e sua felicidade.</p>
+    </div>
+    <div class="card">
+      <h3>Clareza de propósito</h3>
+      <p>Descubra o que realmente importa para você, alinhando suas escolhas com sua essência, potencial e valores.</p>
+    </div>
+    <div class="card">
+      <h3>Relacionamentos saudáveis</h3>
+      <p>Aprenda a estabelecer limites claros e construa relações equilibradas, autênticas e mais significativas.</p>
+    </div>
+  </section>
+
+  <img class="full-photo" src="images/img_beach.png" alt="Caminho ao pôr do sol, jornada de autoconhecimento">
+  <section>
+    <h2>Você não precisa caminhar sozinho.</h2>
+    <p class="lead-text">Toda jornada de reencontro pede um guia que conheça profundamente os desafios do caminho e saiba apoiá-lo com acolhimento, leveza e respeito.</p>
+  </section>
+
+  <!-- THERAPIST BIO -->
+  <section>
+    <img class="bio-photo" src="images/img_marcelo_book.png" alt="Marcelo Alckmin, terapeuta">
+    <h3 class="name">Conheça seu terapeuta Marcelo Alckmin</h3>
+    <p class="bio-text">Marcelo é bacharel em Psicologia — CRP:04/63250, com pós-graduação em Psicologia Transpessoal pela Unipaz e ampla vivência em práticas integrativas.</p>
+    <p class="bio-text">Utilizando sonhos, textos reflexivos, histórias pessoais, respiração consciente, imaginação ativa e momentos profundos de troca, ele guia você para organizar todas as áreas da sua vida, fortalecer sua inteligência emocional e ampliar sua conexão com a vida.</p>
+
+    <h3 class="name">Abordagem</h3>
+    <p class="bio-text">Sua abordagem transpessoal também leva você a explorar estados ampliados de consciência, despertando sua intuição e proporcionando uma conexão profunda com um propósito maior. Tudo isso em um espaço seguro, acolhedor e dedicado à sua transformação integral.</p>
+  </section>
+  <div class="btn-wrap"><a class="btn" href="#contato">Viva com propósito. Clique aqui!</a></div>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <h2>Como funciona essa jornada?</h2>
+
+    <div class="step-item">
+      <h3>Reconheça seus padrões</h3>
+      <p>Com escuta acolhedora, você identifica os padrões que se repetem em suas emoções, pensamentos e comportamentos.</p>
+    </div>
+    <div class="step-item orange">
+      <h3>Liberte-se de ciclos repetitivos</h3>
+      <p>Você terá acesso a práticas que vão além do racional, como imaginação ativa, respiração consciente e momentos de troca profunda, escuta ativa, com apoio acolhedor para desbloquear novos caminhos, fortalecer sua inteligência emocional e se reconectar com sua intuição.</p>
+    </div>
+    <div class="step-item">
+      <h3>Construa seu próprio caminho</h3>
+      <p>Com o suporte acolhedor e seguro do seu guia, você integrará essas novas percepções ao seu dia a dia, desenvolvendo habilidades que vão te ajudar a reorganizar todas as áreas da sua vida com muito mais clareza, significado e uma profunda conexão consigo mesmo.</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section>
+    <h2>Benefícios da abordagem</h2>
+    <div class="donut-wrap">
+      <svg viewBox="0 0 220 220">
+        <circle cx="110" cy="110" r="90" fill="none" stroke="#0f5f78" stroke-width="60" stroke-dasharray="141.3 424" stroke-dashoffset="0" transform="rotate(-90 110 110)"/>
+        <circle cx="110" cy="110" r="90" fill="none" stroke="#136e8a" stroke-width="60" stroke-dasharray="141.3 424" stroke-dashoffset="-141.3" transform="rotate(-90 110 110)"/>
+        <circle cx="110" cy="110" r="90" fill="none" stroke="#0a4a5e" stroke-width="60" stroke-dasharray="141.3 424" stroke-dashoffset="-282.6" transform="rotate(-90 110 110)"/>
+        <circle cx="110" cy="110" r="90" fill="none" stroke="#187b98" stroke-width="60" stroke-dasharray="141.3 424" stroke-dashoffset="-423.9" transform="rotate(-90 110 110)"/>
+        <text x="70" y="70" fill="#fff" font-size="20">♡</text>
+        <text x="145" y="70" fill="#fff" font-size="20">💡</text>
+        <text x="70" y="165" fill="#fff" font-size="20">◎</text>
+        <text x="145" y="165" fill="#fff" font-size="20">☺</text>
+      </svg>
+    </div>
+    <ul class="benefit-list">
+      <li>
+        <span class="b-icon">♡</span><h4>Equilíbrio emocional</h4>
+        <p>Redução significativa de ansiedade, estresse e autocrítica, promovendo maior tranquilidade no dia a dia.</p>
+      </li>
+      <li>
+        <span class="b-icon">💡</span><h4>Clareza mental</h4>
+        <p>Pensamentos mais organizados e decisões alinhadas com seus valores e propósito de vida.</p>
+      </li>
+      <li>
+        <span class="b-icon">☺</span><h4>Relacionamentos saudáveis</h4>
+        <p>Construção de vínculos mais autênticos, com limites claros e maior confiança em si mesmo.</p>
+      </li>
+      <li>
+        <span class="b-icon">◎</span><h4>Conexão com um propósito maior</h4>
+        <p>Trazendo mais significado para sua existência, com integração de aspectos físicos, emocionais, mentais e espirituais, proporcionando uma transformação duradoura.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <h2>O que dizem as pessoas que já foram guiadas pelo Marcelo</h2>
+    <div class="testimonial-box">
+      <blockquote>"Após apenas algumas sessões com Marcelo, minha consciência se expandiu sobre um conflito profissional que me afligia. Hoje me sinto realizada e segura no meu caminho. Ele conduz o processo com leveza e assertividade. Recomendo sem hesitar."</blockquote>
+      <p class="author">— Priscilla S.</p>
+
+      <blockquote>"A cada encontro com Marcelo, vejo mudanças reais no meu comportamento. Ele é atencioso, assertivo e tem me ajudado profundamente no meu processo de autoconhecimento. Hoje tenho mais direção e me sinto melhor comigo mesma."</blockquote>
+      <p class="author">— Silvana C.</p>
+
+      <blockquote>"Mais de um ano de terapia com Marcelo me ajudou a transformar minha mentalidade, espiritualidade e reencontrar o propósito em uma nova profissão. Voltei a pintar, algo que tinha abandonado há anos. A cada dia, sinto que tudo vai se ajeitando."</blockquote>
+      <p class="author">— Valter P.</p>
+
+      <blockquote>"Cara, queria agradecer muito pelo seu acompanhamento, estou me sentindo acolhido e tendo a oportunidade de trabalhar minha saúde mental, emocional e espiritual de forma muito integrativa e prática — estou me tornando mais consciente de questões profundas da minha vida e já vejo resultados transformadores no meu dia a dia. Muito Obrigado"</blockquote>
+      <p class="author">— Saulo</p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <h2>Comece sua jornada agora</h2>
+    <div class="petal-wrap">
+      <svg width="220" height="220" viewBox="0 0 220 220">
+        <ellipse cx="110" cy="65" rx="55" ry="60" fill="#0f5f78"/>
+        <ellipse cx="65" cy="140" rx="55" ry="60" fill="#136e8a"/>
+        <ellipse cx="155" cy="140" rx="55" ry="60" fill="#0a4a5e"/>
+        <text x="98" y="72" fill="#fff" font-size="22">⚖</text>
+        <text x="55" y="147" fill="#fff" font-size="22">★</text>
+        <text x="145" y="147" fill="#fff" font-size="22">◎</text>
+      </svg>
+    </div>
+    <ul class="benefit-list">
+      <li><span class="b-icon">★</span><h4>Transformação integral</h4><p>Reconexão profunda com sua essência</p></li>
+      <li><span class="b-icon">⚖</span><h4>Equilíbrio emocional</h4><p>Ferramentas práticas para seu bem-estar</p></li>
+      <li><span class="b-icon">◎</span><h4>Clareza de propósito</h4><p>Alinhamento com seus valores essenciais</p></li>
+    </ul>
+    <p class="closing-note">Dê o primeiro passo para se reconectar com sua essência, conquistando mais clareza, equilíbrio emocional e significado na sua vida.</p>
+  </section>
+
+  <img class="full-photo" src="images/img_hero_marcelo.png" alt="Marcelo Alckmin">
+
+  <!-- CONTACT CHANNELS -->
+  <section id="contato">
+    <h2>"Dê o primeiro passo para sua auto transformação"</h2>
+    <p class="lead-text">Escolha o canal de comunicação mais adequado para você e inicie sua jornada de transformação:</p>
+
+    <div class="channel">
+      <div class="channel-icon">📱</div>
+      <h4>WhatsApp</h4>
+      <p>Mensagens diretas para agendar sua consulta</p>
+      <a class="btn" href="#" style="max-width:100%;">Agendamentos</a>
+    </div>
+
+    <div class="channel">
+      <div class="channel-icon">📷</div>
+      <h4>Instagram</h4>
+      <p>Acompanhe conteúdos e depoimentos inspiradores</p>
+      <a class="btn" href="https://www.instagram.com/psiceceualckmin/" target="_blank">Seguir</a>
+    </div>
+
+    <div class="channel">
+      <div class="channel-icon">f</div>
+      <h4>Facebook</h4>
+      <p>Participe da comunidade</p>
+      <a class="btn" href="#">Conectar</a>
+    </div>
+
+    <div class="channel">
+      <div class="channel-icon">▶</div>
+      <h4>YouTube</h4>
+      <p>Assista a vídeos com práticas e orientações</p>
+      <a class="btn" href="#">Inscrever-se</a>
+    </div>
+  </section>
+
+  <footer>Estou aqui para acompanhá-lo em cada passo dessa jornada.</footer>
+
+</div>
+</body>
+</html>
