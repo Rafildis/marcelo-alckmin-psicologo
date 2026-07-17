@@ -60,6 +60,10 @@
   .mobile-nav{
     display:none; flex-direction:column; gap:2px; background:var(--bg);
     border-bottom:1px solid #ddd4c9;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
   }
   .mobile-nav.open{display:flex;}
   .mobile-nav a{padding:14px 24px; text-decoration:none; color:var(--ink); font-size:15px; font-weight:600; border-top:1px solid #ddd4c9;}
@@ -242,13 +246,13 @@
       </nav>
       <button class="menu-icon" id="menuBtn" aria-label="Abrir menu"><span></span><span></span><span></span></button>
     </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#sobre">Sobre</a>
+      <a href="#abordagem">Abordagem</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Falar com Marcelo</a>
+    </div>
   </header>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#sobre">Sobre</a>
-    <a href="#abordagem">Abordagem</a>
-    <a href="#depoimentos">Depoimentos</a>
-    <a href="#contato">Falar com Marcelo</a>
-  </div>
 
   <!-- HERO -->
   <div class="hero">
