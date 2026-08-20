@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rafildis.github.io/marcelo-alckmin-psicologo/sitemap.xml
